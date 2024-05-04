@@ -27,3 +27,6 @@ test:
 
 run:
 	$(PYTHON) -m streamlit run app.py
+
+server:
+	$(PYTHON) -m uvicorn api:app --reload
