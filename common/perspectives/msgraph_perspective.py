@@ -21,7 +21,7 @@ Preferences provided by user: {user_info}
 chat = AzureChatOpenAI(model=os.getenv("OPENAI_MODEL"), verbose=True)
 
 
-def generate_perspective(profile_info, user_info):
+def generate_msgraph_perspective(profile_info, user_info):
 
     chat_template = ChatPromptTemplate.from_messages(
         [

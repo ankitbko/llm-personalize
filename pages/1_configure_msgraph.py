@@ -4,7 +4,7 @@ import asyncio
 from common.db import read_from_userinfo, write_to_userinfo
 from common.msgraph import get_profile_info, parse_profile_info
 
-from common.perspectives.create_perspective import generate_perspective
+from common.perspectives.msgraph_perspective import generate_msgraph_perspective
 
 st.set_page_config(page_title="Configure - AD")
 st.title("Create Perspective From MS Graph")
@@ -16,7 +16,7 @@ email = st.text_input("Enter your email address")
 
 def create_perspective(profile_info, user_info):
     # Replace with your actual code to create perspective
-    return generate_perspective(profile_info, user_info)
+    return generate_msgraph_perspective(profile_info, user_info)
 
 
 # Initialize the session state if it doesn't exist
