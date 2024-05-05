@@ -1,13 +1,13 @@
 import streamlit as st
 import asyncio
 
-from common.db import read_from_db, write_to_db
+from common.db import read_from_userinfo, write_to_userinfo
 from common.msgraph import get_profile_info, parse_profile_info
 
 from common.perspectives.create_perspective import generate_perspective
 
-# st.title("Configure")
 st.set_page_config(page_title="Configure - AD")
+st.title("Create Perspective From MS Graph")
 
 email = st.text_input("Enter your email address")
 
@@ -28,7 +28,7 @@ if 'perspective' not in st.session_state:
     st.session_state['perspective'] = "N/A"
 
 if st.button("Fetch"):
-    record = read_from_db(email)
+    record = read_from_userinfo(email)
     if record:
         st.session_state['profile_info'], st.session_state['user_info'], st.session_state['perspective'] = record
 
@@ -51,8 +51,8 @@ if st.button("Submit"):
     print(f"{st.session_state['user_info']=}")
     st.session_state['perspective'] = create_perspective(
         st.session_state['profile_info'], st.session_state['user_info'])
-    write_to_db(email, str(st.session_state['profile_info']),
-                st.session_state['user_info'], st.session_state['perspective'])
+    write_to_userinfo(email, str(st.session_state['profile_info']),
+                      st.session_state['user_info'], st.session_state['perspective'])
     st.success("Information saved successfully!")
 
 st.text_area("Your perspective",
