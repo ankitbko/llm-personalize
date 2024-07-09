@@ -11,9 +11,8 @@ st.title("Create Perspective From MS Graph")
 
 email = st.text_input("Enter your email address")
 
+
 # Function to create perspective
-
-
 def create_perspective(profile_info, user_info):
     # Replace with your actual code to create perspective
     return generate_msgraph_perspective(profile_info, user_info)

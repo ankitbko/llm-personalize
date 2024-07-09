@@ -41,8 +41,6 @@ st.session_state['user_info'] = st.text_area(
 
 
 # Function to add a new email body text area
-
-
 def add_email_body():
     st.session_state.email_body_count += 1
 
